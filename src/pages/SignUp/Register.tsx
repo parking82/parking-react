@@ -17,12 +17,12 @@ import FormRegister from "./FormRegister/FormRegister";
 export default function SignUp() {
   const { register, handleSubmit } = useForm<Usuario>();
 
-  const { post } = useFetch("http://localhost:8080");
+  const { post } = useFetch("http://localhost:8081");
 
   const onSubmit = async (data: any) => {
     console.log(data);
     try {
-      const response = await post("/cadastro/usuario", data);
+      await post("/usuario/cadastro", data);
       console.log("Usuario Cadastro com sucesso");
     } catch (error) {
       console.error("Erro ao enviar a requisição:", error);
